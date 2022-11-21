@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Adventure Game</title>
+    <link rel="stylesheet" href="styling.css">
+    <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+<main>
+
+    <div id="first-scene">
+        <h1 class="welcome" id="welcome-text"></h1>
+        <button id="start-button"></button>
+    </div>
+
+    <div id="second-scene">
+        <h1 class="welcome" id="choose-name">Please choose ur name:</h1>
+        <input type="text" id="username-input">
+        <p class="tip">(when finished writing, press enter!)</p>
+    </div>
+
+    <div id="third-scene">
+        <h1 class="welcome" id="wake-message"></h1>
+        <h1 class="welcome" id="wake-again"></h1>
+        <button class="option-button" id="left" onclick="loadNextScene(thirdScene,fourthScene); wakeUp()">Okay I'm awake..</button>
+        <button class="option-button" id="right" onclick="keepSleeping()">Let me sleep!</button>
+    </div>
+
+    <div id="fourth-scene">
+        <h1 class="welcome">Good, you're up! Very nice to meet you, <div id="username-placeholder"></div>. Welcome to The Test. 
+        In order to pass the test, you need to acquire passcode!</h1>
+        <button class="option-button" id="lets-go" onclick="loadNextScene(fourthScene,fifthScene)">Let's go!</button>
+    </div>
+
+    <div id="fifth-scene">
+        <h1 class="welcome">In order to recieve the passcode, you need to prove you possess above general A.I intelligence and complete the machines simple challenges:</h1>
+        <div id="pinmachine-canvas">
+            <div id="number-parent">
+                <button id="one" onclick="numberPress(oneValue); checkPassode()" value="1">1</button>
+                <button id="two" onclick="numberPress(twoValue); checkPassode()" value="2">2</button>
+                <button id="three" onclick="numberPress(threeValue); checkPassode()" value="3">3</button>
+                <button id="four" onclick="numberPress(fourValue); checkPassode()" value="4">4</button>
+                <button id="five" onclick="numberPress(fiveValue); checkPassode()" value="5">5</button>
+                <button id="six" onclick="numberPress(sixValue); checkPassode()" value="6">6</button>
+                <button id="seven" onclick="numberPress(sevenValue); checkPassode()" value="7">7</button>
+                <button id="eight" onclick="numberPress(eightValue); checkPassode()" value="8">8</button>
+                <button id="nine" onclick="numberPress(nineValue); checkPassode()" value="9">9</button>
+            </div>
+            <div id="password-field">
+            <div id="enter-password"><p id="n1"></p><p id="n2"></p><p id="n3"></p><p id="n4"></p></div>
+            <button id="clear-password-button" onclick="clearPasscode()">X</button>
+            </div>
+        </div>
+
+        <div id="challenges-canvas">
+            <button id="rps-button" onclick="loadNextScene(fifthScene, rpsCanvas)">Rock Paper Scissors</button>
+            <button id="trolley-button" onclick="loadNextScene(fifthScene, trolleyCanvas)">Trolley Problem</button>
+            <button id="math-button" onclick="loadNextScene(fifthScene, mathCanvas)">Simple Maths</button>
+            <button id="translate-button" onclick="loadNextScene(fifthScene, translateCanvas)">Translate Something Easy</button>
+        </div>
+    </div>
+
+    <div id="rps-canvas">
+        <h1 class="welcome" id="you-chose-text">Best of 3. Choose wisely:</h1>
+        <h1 class="welcome" id="result"></h1>
+        <h1 class="welcome" id="score"></h1>
+        <div id="rps-options">
+            <button class="option-button" id="rock" onclick="playGame(optionRock)">Rock</button>
+            <button class="option-button" id="paper" onclick="playGame(optionPaper)">Paper</button>
+            <button class="option-button" id="scissors"onclick="playGame(optionScissors)">Scissors</button>
+        </div>
+        <button class="option-button" id="play-again" onclick="playAgain()">Play Again</button>
+        <h1 class="welcome" id="won-rps">Congratulations, you beat the machine. The first password number is: 1</h1>
+        <button class="option-button" id="rps-finish" onclick="rpsFinish()">Go to next challenge</button>
+    </div>
+
+    <div id="trolley-canvas">
+        <h1 class="welcome" id="trolley-message">According to the utilitarian principle: the preferable outcome of this situation is either:</h1>
+        <button id="option-A" onclick="trolleyFinish(optionA)"></button>
+        <button id="option-B" onclick="trolleyFinish(optionB)"></button>
+        <button class="option-button" id="go-next" onclick="loadNextScene(trolleyCanvas, fifthScene)">Go next!</button>
+        <img id="trolley-pic" src="trolley-pic.png">
+    </div>
+
+    <div id="math-canvas">
+      <h1 class="welcome" id="math-question">What is 3 + 2*3 - 4?</h1>
+      <input type="text" id="math-input">
+      <p class="tip">(when finished writing, press enter!)</p>
+      <button class="option-button" id="math-next" onclick="loadNextScene(mathCanvas, fifthScene)">Go next!</button>
+    </div>
+
+    <div id="translate-canvas">
+        <div id="google_translate_element"></div>
+        <h1 class="welcome" id="translate-instructions">For this challenge, you'll need to use the language changer to translate the sentence below to simplified Chinese. Copy the translated sentence into the input-field and submit!</h1>
+        <h1 class="welcome" id="translate-sentence" translate="yes">Hello everyone! I love ice cream!</h1>
+        <input type="text" id="translate-input"></input>
+        <p class="tip">(when finished writing, press enter!)</p>
+        <button class="option-button" id="translate-next" onclick="translationFinish()">Go next!</button>
+    </div>
+
+    <div id="finished-canvas">
+        <h1 class="welcome">Congratulations! You made it out!</br> It took you: <span id="time"></span></br>Thanks for playing!</h1>
+    </div>
+
+</main>
+
+
+<script src="script.js"></script>
+<script src="rpsGame.js"></script>
+    
+
+    
+</body>
+</html>
