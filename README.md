@@ -1,4 +1,4 @@
-#Text-Adventure Game!
+# Text-Adventure Game!
 
 This is my first project I built using javaScript. The object was to create a text-based interative experience where you can make changes and or choose different options. 
 
