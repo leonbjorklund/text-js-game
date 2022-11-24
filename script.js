@@ -267,7 +267,7 @@ function rpsFinish() {
 * if string doesn't include B, a message will be given to try again.
 * @param {HTMLButtonElement} whichOption - button which will be checked for string */
 function trolleyFinish (whichOption) {
-  if(whichOption.innerHTML.includes("B")) {
+  if(whichOption.innerHTML.includes("A")) {
     optionA.style.display = "none";
     optionB.style.display = "none";
     finishText.innerHTML = "Correct! The next password digit is: 3";
