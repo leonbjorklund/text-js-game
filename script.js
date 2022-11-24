@@ -261,7 +261,7 @@ function rpsFinish() {
   optionB.innerHTML = "B";
 
 /** trolleyFinish checks between two A and B-buttons that contains string A and B,
-* if string includes B, it will hide the option-buttons and give a message with passcode digit,
+* if string includes A, it will hide the option-buttons and give a message with passcode digit,
 * then it will show button that loads next scene.
 * finishChallenge is also run to reveal passcode digit in corresponding button. 
 * if string doesn't include B, a message will be given to try again.
