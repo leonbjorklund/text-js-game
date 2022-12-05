@@ -8,7 +8,7 @@ I made a simple game where you have to provide user-input to complete some simpl
  
  It's been a fun project and I'm excited to use and improve my knowledge creating more projects like this. 
 
-Link: https://leonbjorklund.github.io/
+Link: https://leonbjorklund.github.io/text-js-game/
 
 Project is not super responsive, works best on desktop/laptop. 
 
